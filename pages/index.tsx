@@ -22,7 +22,7 @@ export default function Home({
     date: string
     title: string
     id: string
-  }
+  }[]
 }) {
   return (
     <Layout home>
