@@ -32,7 +32,7 @@ export default function Home({
       <section>
         <p>
           I&apos;m a software developer with 3 years of experience. I&apos;m passionate
-          about learning and sharing knowledge with 1the engineering community
+          about learning and sharing knowledge with the engineering community
           through my personal blog and my YouTube channel. Furthermore, I have
           skills in a broad variety of technologies, methodologies, platforms
           and programming languages like Python, JavaScript, Docker, Git, TDD,

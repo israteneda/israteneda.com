@@ -1,4 +1,4 @@
-const isProd = process.env.NODE_ENV === 'production'
+const baseURIPrefix = process.env.NODE_ENV === 'production' ? 'https://israteneda.com' : undefined;
 /**
  * @type {import('next').NextConfig}
  */
@@ -8,9 +8,9 @@ const nextConfig = {
       unoptimized: true,
     },
   },
-  assetPrefix: isProd ? 'https://israteneda.com' : undefined,
+  assetPrefix: baseURIPrefix,
   env: {
-    linkPrefix: isProd ? 'https://israteneda.com' : undefined,
+    linkPrefix: baseURIPrefix,
   },
   generateBuildId: async () => 'current',
 };
