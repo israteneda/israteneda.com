@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+permissions:
+  contents: write
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -45,12 +47,11 @@ jobs:
         run: pnpm run export
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: out
-          CLEAN: true
+          branch: gh-pages
+          folder: out
+          clean: true
           clean-exclude: |
             CNAME
             .nojekyll
