@@ -45,6 +45,7 @@ export default function Home({
           practices for coding or soft skills to improve myself as a
           professional.
         </p>
+        <p>Read my <Link href="/resume">resume</Link>.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
