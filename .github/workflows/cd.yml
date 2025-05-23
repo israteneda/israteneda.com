@@ -42,9 +42,6 @@ jobs:
       
       - name: Build
         run: pnpm run build
-      
-      - name: Export
-        run: pnpm run export
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
