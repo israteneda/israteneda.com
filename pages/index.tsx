@@ -17,6 +17,10 @@ import {
   Divider,
   Tag,
   VideoThumbnail,
+  Form,
+  FormLayout,
+  TextField,
+  Box,
 } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import Space from "../components/Space";
@@ -70,6 +74,38 @@ const testimonials = [
     image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
 ];
+
+function LetsBuildSection() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
+
+  return (
+    <Card>
+      <BlockStack gap="400">
+        <Text variant="headingLg" as="h2">Let's Build Something Amazing</Text>
+        <Text as="p">Ready to take your e-commerce experience to the next level? Send me a message and let's get started!</Text>
+        {submitted ? (
+          <Text as="p" tone="success">Thank you for your request! I'll be in touch soon.</Text>
+        ) : (
+          <Form onSubmit={handleSubmit}>
+            <FormLayout>
+              <TextField label="Name" value={name} onChange={setName} autoComplete="name" />
+              <TextField label="Email" value={email} onChange={setEmail} autoComplete="email" type="email" />
+              <TextField label="Message" value={message} onChange={setMessage} multiline={5} autoComplete="off" />
+              <Button submit variant="primary">Send Request</Button>
+            </FormLayout>
+          </Form>
+        )}
+      </BlockStack>
+    </Card>
+  );
+}
 
 export default function ResumePage() {
   return (
@@ -131,18 +167,48 @@ export default function ResumePage() {
                         <Text as="p" tone="subdued">Jan 2025 – Present · Remote (USA)</Text>
                         <List type="bullet">
                           <List.Item>Developed custom Shopify apps.</List.Item>
-                          <List.Item>Theme customization, third-party integration, and UI/UX enhancements.</List.Item>
-                          <List.Item>Bug fixing and performance optimization across brand storefronts.</List.Item>
+                          <List.Item>Theme customization, third-party software integration, and UX/UI improvements.</List.Item>
+                          <List.Item>Fixed bugs and optimized performance across multiple brand storefronts.</List.Item>
                         </List>
                       </BlockStack>
                     </Card>
                     <Card>
                       <BlockStack gap="100">
                         <Text variant="headingSm" as="h3">Frontend Engineer – Brandable</Text>
-                        <Text as="p" tone="subdued">Aug 2023 – Dec 2024 · Remote (NY, USA)</Text>
+                        <Text as="p" tone="subdued">Aug 2023 – Dec 2024 · Remote (New York, USA)</Text>
                         <List type="bullet">
-                          <List.Item>Maintained and improved frontend of Amazon analytics platform.</List.Item>
-                          <List.Item>Implemented features, fixed bugs, wrote docs, and made technical estimates.</List.Item>
+                          <List.Item>Maintained and improved the frontend of Brandable, an Amazon analytics platform.</List.Item>
+                          <List.Item>Implemented new features, resolved bugs, made technical estimates, and wrote documentation.</List.Item>
+                        </List>
+                      </BlockStack>
+                    </Card>
+                    <Card>
+                      <BlockStack gap="100">
+                        <Text variant="headingSm" as="h3">React / Python Developer – Ioet</Text>
+                        <Text as="p" tone="subdued">Jan 2021 – Aug 2023 · Remote</Text>
+                        <List type="bullet">
+                          <List.Item>Contractor for Pair Eyewear (React): developed and maintained the e-commerce headless site based on Shopify.</List.Item>
+                          <List.Item>Contractor for Warby Parker (Python): built features for the finance department to integrate insurance providers.</List.Item>
+                          <List.Item>Applied best practices (Clean Code, TDD) and participated in internal projects and hiring processes.</List.Item>
+                        </List>
+                      </BlockStack>
+                    </Card>
+                    <Card>
+                      <BlockStack gap="100">
+                        <Text variant="headingSm" as="h3">Software Consultant – Freelance</Text>
+                        <Text as="p" tone="subdued">Feb 2020 – Dec 2020 · Remote</Text>
+                        <List type="bullet">
+                          <List.Item>Freelance development with Django, Flutter, Unity, Node.js. Contributed to open-source projects, including the electronic invoicing system "Verónica".</List.Item>
+                        </List>
+                      </BlockStack>
+                    </Card>
+                    <Card>
+                      <BlockStack gap="100">
+                        <Text variant="headingSm" as="h3">Software Developer – Mivilsoft</Text>
+                        <Text as="p" tone="subdued">Feb 2019 – Feb 2020 · Ambato, Ecuador</Text>
+                        <List type="bullet">
+                          <List.Item>Developed mobile apps with Android and Flutter for public transport. Backend development with Java and Python.</List.Item>
+                          <List.Item>Participated in launching and presenting internal product initiatives.</List.Item>
                         </List>
                       </BlockStack>
                     </Card>
@@ -216,7 +282,32 @@ export default function ResumePage() {
                     <BlockStack gap="400">
                       <Grid gap={{ xs: "400", sm: "400", md: "400", lg: "400" }} columns={{ xs: 2, sm: 3, md: 3, lg: 3 }}>
                         {clients.map((logo, i) => (
-                          <Thumbnail key={i} source={logo} alt="client logo" size="large" />
+                          <Box
+                            key={i}
+                            borderColor="transparent"
+                            padding="0"
+                            minHeight="60px"
+                            minWidth="100px"
+                            as="div"
+                          >
+                            <div
+                              style={{
+                                width: '100px',
+                                height: '60px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: 'none',
+                                boxShadow: 'none',
+                              }}
+                            >
+                              <img
+                                src={logo}
+                                alt="client logo"
+                                style={{ width: '100px', height: '60px', objectFit: 'contain', display: 'block' }}
+                              />
+                            </div>
+                          </Box>
                         ))}
                       </Grid>
                     </BlockStack>
@@ -224,7 +315,12 @@ export default function ResumePage() {
                 </div>
               </Card>
             </Layout.Section>
+
           </Layout>
+
+          <Space size="1rem" />
+
+          <LetsBuildSection />
 
           <FooterHelp>
             © {new Date().getFullYear()} Israel Teneda · Built with Polaris + React
