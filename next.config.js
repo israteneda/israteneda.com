@@ -3,10 +3,8 @@ const baseURIPrefix = process.env.NODE_ENV === 'production' ? 'https://isratened
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
+  images: {
+    unoptimized: true,
   },
   assetPrefix: baseURIPrefix,
   env: {

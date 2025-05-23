@@ -31,7 +31,7 @@ export default function Home({
       </Head>
       <section>
         <p>
-          I&apos;m a software developer with 3 years of experience. I&apos;m passionate
+          I&apos;m a software developer with 5 years of experience. I&apos;m passionate
           about learning and sharing knowledge with the engineering community
           through my personal blog and my YouTube channel. Furthermore, I have
           skills in a broad variety of technologies, methodologies, platforms
@@ -52,7 +52,7 @@ export default function Home({
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                {title}
               </Link>
               <br />
               <small>
