@@ -25,46 +25,47 @@ import {
 } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import Space from "../components/Space";
+import { useForm, ValidationError } from '@formspree/react';
 
 const projects = [
   {
-    title: "Lyra Collective Brand Storefronts",
-    description: "Developed and maintained Shopify brand storefronts (such as ever.com or mylola.com) for Lyra Collective, including theme customization, third-party software integration, and UX/UI improvements.",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-    url: "https://lyracollective.com",
-    technologies: ["Liquid", "CSS", "JavaScript", "GraphQL", "Shopify Plus"],
+    title: "Lyra Collective Brand Storefronts (ever.com, mylola.com, etc.)",
+    description: "Developed and maintained Shopify brand storefronts for Lyra Collective, including theme customization, third-party software integration, and UX/UI improvements.",
+    image: "/projects/ever.jpeg",
+    url: "https://www.ever.com/",
+    technologies: ["Liquid", "GraphQL", "Shopify Plus"],
     status: "attention" as const
   },
   {
     title: "Brandable Analytics Platform",
     description: "Maintained and improved the frontend for Brandable, an Amazon analytics platform, focusing on performance and scalability.",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
-    url: "https://brandable.com",
-    technologies: ["React", "Shopify Polaris", "TypeScript"],
+    image: "/projects/brandable.png",
+    url: "https://www.getbrandable.com/",
+    technologies: ["React", "TypeScript", "Material UI"],
     status: "success" as const
   },
   {
     title: "Pair Eyewear E-commerce",
     description: "Developed and maintained a headless Shopify site for Pair Eyewear, enhancing the e-commerce experience.",
-    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+    image: "/projects/paireyewear.png",
     url: "https://paireyewear.com",
-    technologies: ["React", "Shopify", "Node.js"],
+    technologies: ["React", "Shopify Headless", "Contentful"],
     status: "success" as const
   },
   {
     title: "Warby Parker Finance Integration",
     description: "Built features for the finance department to integrate insurance providers using Python.",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+    image: "/projects/warbyparker.jpeg",
     url: "https://warbyparker.com",
-    technologies: ["Python", "Django", "APIs"],
+    technologies: ["Python", "Tornado", "APIs"],
     status: "attention" as const
   },
   {
     title: "Electronic Invoicing System 'Verónica'",
     description: "Contributed to an open-source electronic invoicing system for the Ecuadorian market.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
-    url: "https://github.com/israteneda/veronica",
-    technologies: ["SQL", "Node.js", "JavaScript"],
+    image: "/projects/veronica.png",
+    url: "https://veronica.ec",
+    technologies: ["SQL", "Java", "JavaScript"],
     status: "success" as const
   },
 ];
@@ -105,32 +106,65 @@ const testimonials = [
 ];
 
 function LetsBuildSection() {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [message, setMessage] = React.useState("");
-  const [submitted, setSubmitted] = React.useState(false);
+  const [state, handleSubmit] = useForm("xprvjnvx");
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const hiddenMessageRef = React.useRef(null);
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const onSubmit = (e) => {
+    if (hiddenMessageRef.current) {
+      hiddenMessageRef.current.value = `Name: ${name}\nMessage: ${message}`;
+    }
+    handleSubmit(e);
   };
+
+  if (state.succeeded) {
+    return <p>Thank you for reaching out! I will get back to you soon.</p>;
+  }
 
   return (
     <Card>
       <BlockStack gap="400">
         <Text variant="headingLg" as="h2">Let's Build Something Amazing</Text>
-        <Text as="p">Ready to take your e-commerce experience to the next level? Send me a message and let's get started!</Text>
-        {submitted ? (
-          <Text as="p" tone="success">Thank you for your request! I'll be in touch soon.</Text>
-        ) : (
-          <Form onSubmit={handleSubmit}>
-            <FormLayout>
-              <TextField label="Name" value={name} onChange={setName} autoComplete="name" />
-              <TextField label="Email" value={email} onChange={setEmail} autoComplete="email" type="email" />
-              <TextField label="Message" value={message} onChange={setMessage} multiline={5} autoComplete="off" />
-              <Button submit variant="primary">Send Request</Button>
-            </FormLayout>
-          </Form>
-        )}
+        <Text as="p">
+          Ready to take your e-commerce experience to the next level? Send me a message and let's get started!
+        </Text>
+        <Form onSubmit={onSubmit}>
+          <FormLayout>
+            <TextField
+              label="Name"
+              value={name}
+              onChange={setName}
+              autoComplete="name"
+              requiredIndicator
+            />
+            <TextField
+              label="Email Address"
+              type="email"
+              name="email"
+              value={email}
+              onChange={setEmail}
+              autoComplete="email"
+              requiredIndicator
+            />
+            <ValidationError prefix="Email" field="email" errors={state.errors} />
+            {/* Hidden input for Formspree */}
+            <input type="hidden" name="message" ref={hiddenMessageRef} />
+            <TextField
+              label="Message"
+              value={message}
+              onChange={setMessage}
+              multiline={5}
+              requiredIndicator
+              autoComplete="off"
+            />
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
+            <Button submit disabled={state.submitting}>
+              Send Request
+            </Button>
+          </FormLayout>
+        </Form>
       </BlockStack>
     </Card>
   );
@@ -389,6 +423,10 @@ export default function ResumePage() {
             padding-left: 1rem;
             padding-right: 1rem;
           }
+        }
+        /* Increase gap between grid items */
+        :global(.Polaris-Grid) {
+          gap: 1rem !important;
         }
       `}</style>
     </AppProvider>
