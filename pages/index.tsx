@@ -82,25 +82,25 @@ const clients = [
 const testimonials = [
   {
     name: "Mike Kuerschner",
-    title: "Engineering Manager at Birdy Grey",
+    title: "Engineering Manager when working at Pair Eyewear",
     testimonial: `Israel has a strong passion for development and writing clean, modern code, which translates to building exceptional user experiences. In my time working with Israel he was always willing to take on more challenging tasks, learn something new, and lend a helping hand to fellow team members...`,
     image: "/testimonials/Mike-Kuerschner.jpeg",
   },
   {
     name: "Tzu-Hao (Tony) Huang",
-    title: "Engineering Manager at Warby Parker",
+    title: "Engineering Manager when working at Warby Parker",
     testimonial: `Israel is one of the best engineers that I have had the pleasures to work with. He took no time at all to ramp up in Warby Parker's Findev team and is a super fast learner. I am also impressed with how Israel is always on top any bug or defect that show up on production before anyone else...`,
     image: "/testimonials/Tony-Huang.jpeg",
   },
   {
     name: "Edwin Hidalgo",
-    title: "Product Lead | AI, Web3, Creative Consumer | ex. Story, JPM, Warby Parker",
+    title: "Project Manager when working at Warby Parker",
     testimonial: `Israel has been an amazing key contributor to our team, taking initiative on both internal and user facing client synchronous projects while simultaneously taking the time to support his teammates across other projects...`,
     image: "/testimonials/Edwin-Hidalgo.jpeg",
   },
   {
     name: "Jonathan Andrés Naranjo",
-    title: "Senior Front-end Developer | Team Lead at ioet",
+    title: "Senior Front-end Developer when working at ioet",
     testimonial: `Israel is truly one of a kind. He quickly adapts, delivers great results, and stands out for his strong development skills and exceptional interpersonal abilities. His communication, delegation, and leadership make a real difference in any team...`,
     image: "/testimonials/Andres-Naranjo.jpeg",
   },
@@ -303,6 +303,7 @@ export default function ResumePage() {
                             height={160}
                             style={{ width: '100%', borderRadius: '8px', objectFit: 'cover', maxHeight: 160 }} 
                           />
+                          <Space size="1rem" />
                           <Text variant="headingSm" as="h3">{project.title}</Text>
                           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', margin: '0.5rem 0' }}>
                             {project.technologies.map((tech, i) => (
@@ -332,7 +333,12 @@ export default function ResumePage() {
                     {testimonials.map((t, idx) => (
                       <MediaCard
                         key={idx}
-                        title={t.name}
+                        title={
+                          <div>
+                            <Text variant="headingSm" as="h3">{t.name}</Text>
+                            <Text as="p" tone="subdued">{t.title}</Text>
+                          </div>
+                        }
                         description={t.testimonial}
                       >
                         <VideoThumbnail
@@ -340,10 +346,6 @@ export default function ResumePage() {
                           thumbnailUrl={t.image}
                           onClick={() => {}}
                         />
-                        <div style={{ marginTop: 12 }}>
-                          <Tag>{t.name} — {t.title}</Tag>
-                          <span className="testimonial-name-title-mobile">{t.name} — {t.title}</span>
-                        </div>
                       </MediaCard>
                     ))}
                   </Grid>
