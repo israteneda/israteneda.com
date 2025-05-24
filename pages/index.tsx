@@ -26,6 +26,7 @@ import {
 import "@shopify/polaris/build/esm/styles.css";
 import Space from "../components/Space";
 import { useForm, ValidationError } from '@formspree/react';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -126,9 +127,9 @@ function LetsBuildSection() {
   return (
     <Card>
       <BlockStack gap="400">
-        <Text variant="headingLg" as="h2">Let's Build Something Amazing</Text>
+        <Text variant="headingLg" as="h2">Let&apos;s Build Something Amazing</Text>
         <Text as="p">
-          Ready to take your e-commerce experience to the next level? Send me a message and let's get started!
+          Ready to take your e-commerce experience to the next level? Send me a message and let&apos;s get started!
         </Text>
         <Form onSubmit={onSubmit}>
           <FormLayout>
@@ -266,7 +267,7 @@ export default function ResumePage() {
                         <Text variant="headingSm" as="h3">Software Consultant – Freelance</Text>
                         <Text as="p" tone="subdued">Feb 2020 – Dec 2020 · Remote</Text>
                         <List type="bullet">
-                          <List.Item>Freelance development with Django, Flutter, Unity, Node.js. Contributed to open-source projects, including the electronic invoicing system "Verónica".</List.Item>
+                          <List.Item>Freelance development with Django, Flutter, Unity, Node.js. Contributed to open-source projects, including the electronic invoicing system &quot;Verónica&quot;.</List.Item>
                         </List>
                       </BlockStack>
                     </Card>
@@ -295,7 +296,13 @@ export default function ResumePage() {
                     {projects.map((project, idx) => (
                       <Card key={idx} padding="400">
                         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-                          <img src={project.image} alt={project.title} style={{ width: '100%', borderRadius: '8px', objectFit: 'cover', maxHeight: 160 }} />
+                          <Image 
+                            src={project.image} 
+                            alt={project.title} 
+                            width={400}
+                            height={160}
+                            style={{ width: '100%', borderRadius: '8px', objectFit: 'cover', maxHeight: 160 }} 
+                          />
                           <Text variant="headingSm" as="h3">{project.title}</Text>
                           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', margin: '0.5rem 0' }}>
                             {project.technologies.map((tech, i) => (
@@ -354,9 +361,11 @@ export default function ResumePage() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '80px', gap: '5%' }}>
                       {clients.map((logo, i) => (
                         <div key={i} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', height: '80px' }}>
-                            <img
+                            <Image
                               src={logo}
                               alt="client logo"
+                              width={200}
+                              height={80}
                               style={{ maxWidth: '100%', maxHeight: '80px', objectFit: 'contain', display: 'block' }}
                             />
                         </div>
@@ -378,57 +387,6 @@ export default function ResumePage() {
           </FooterHelp>
         </Page>
       </Frame>
-      <style jsx>{`
-        /* Make testimonial images the same size and object-fit cover */
-        :global(.Polaris-MediaCard__Media img) {
-          width: 180px !important;
-          height: 180px !important;
-          object-fit: cover !important;
-          border-radius: 16px !important;
-        }
-        /* Hide tag and show plain text for name/title on mobile */
-        .testimonial-name-title-mobile {
-          display: none;
-        }
-        @media (max-width: 600px) {
-          :global(.Polaris-Grid) {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-          }
-          :global(.Polaris-Grid > *) {
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-          :global(.Polaris-MediaCard__Media img) {
-            width: 100% !important;
-            height: 40vw !important;
-            min-height: 120px !important;
-            max-height: 220px !important;
-            object-fit: cover !important;
-            border-radius: 0 !important;
-          }
-          :global(.Polaris-MediaCard__Content) {
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-          }
-          :global(.Polaris-Tag) {
-            display: none !important;
-          }
-          .testimonial-name-title-mobile {
-            display: block;
-            margin-top: 0.5rem;
-            font-weight: 500;
-            color: #202223;
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
-        }
-        /* Increase gap between grid items */
-        :global(.Polaris-Grid) {
-          gap: 1rem !important;
-        }
-      `}</style>
     </AppProvider>
   );
 }
