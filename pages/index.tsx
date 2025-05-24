@@ -82,25 +82,25 @@ const clients = [
 const testimonials = [
   {
     name: "Mike Kuerschner",
-    title: "Engineering Manager when working at Pair Eyewear",
+    title: `Engineering Manager at Pair Eyewear while we worked together`,
     testimonial: `Israel has a strong passion for development and writing clean, modern code, which translates to building exceptional user experiences. In my time working with Israel he was always willing to take on more challenging tasks, learn something new, and lend a helping hand to fellow team members...`,
     image: "/testimonials/Mike-Kuerschner.jpeg",
   },
   {
     name: "Tzu-Hao (Tony) Huang",
-    title: "Engineering Manager when working at Warby Parker",
+    title: `Engineering Manager at Warby Parker while we worked together`,
     testimonial: `Israel is one of the best engineers that I have had the pleasures to work with. He took no time at all to ramp up in Warby Parker's Findev team and is a super fast learner. I am also impressed with how Israel is always on top any bug or defect that show up on production before anyone else...`,
     image: "/testimonials/Tony-Huang.jpeg",
   },
   {
     name: "Edwin Hidalgo",
-    title: "Project Manager when working at Warby Parker",
+    title: `Project Manager at Warby Parker while we worked together`,
     testimonial: `Israel has been an amazing key contributor to our team, taking initiative on both internal and user facing client synchronous projects while simultaneously taking the time to support his teammates across other projects...`,
     image: "/testimonials/Edwin-Hidalgo.jpeg",
   },
   {
     name: "Jonathan Andrés Naranjo",
-    title: "Senior Front-end Developer when working at ioet",
+    title: `Senior Front-end Developer at ioet while we worked together`,
     testimonial: `Israel is truly one of a kind. He quickly adapts, delivers great results, and stands out for his strong development skills and exceptional interpersonal abilities. His communication, delegation, and leadership make a real difference in any team...`,
     image: "/testimonials/Andres-Naranjo.jpeg",
   },
@@ -233,7 +233,7 @@ export default function ResumePage() {
                     <Card>
                       <BlockStack gap="100">
                         <Text variant="headingSm" as="h3">Shopify Developer – Lyra Collective</Text>
-                        <Text as="p" tone="subdued">Jan 2025 – Present · Remote (USA)</Text>
+                        <Text as="p" tone="subdued">Jan 2025 – Present · Remote</Text>
                         <List type="bullet">
                           <List.Item>Developed custom Shopify apps.</List.Item>
                           <List.Item>Theme customization, third-party software integration, and UX/UI improvements.</List.Item>
@@ -244,7 +244,7 @@ export default function ResumePage() {
                     <Card>
                       <BlockStack gap="100">
                         <Text variant="headingSm" as="h3">Frontend Engineer – Brandable</Text>
-                        <Text as="p" tone="subdued">Aug 2023 – Dec 2024 · Remote (New York, USA)</Text>
+                        <Text as="p" tone="subdued">Aug 2023 – Dec 2024 · Remote</Text>
                         <List type="bullet">
                           <List.Item>Maintained and improved the frontend of Brandable, an Amazon analytics platform.</List.Item>
                           <List.Item>Implemented new features, resolved bugs, made technical estimates, and wrote documentation.</List.Item>
@@ -274,7 +274,7 @@ export default function ResumePage() {
                     <Card>
                       <BlockStack gap="100">
                         <Text variant="headingSm" as="h3">Software Developer – Mivilsoft</Text>
-                        <Text as="p" tone="subdued">Feb 2019 – Feb 2020 · Ambato, Ecuador</Text>
+                        <Text as="p" tone="subdued">Feb 2019 – Feb 2020 · On-site</Text>
                         <List type="bullet">
                           <List.Item>Developed mobile apps with Android and Flutter for public transport. Backend development with Java and Python.</List.Item>
                           <List.Item>Participated in launching and presenting internal product initiatives.</List.Item>
