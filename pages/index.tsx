@@ -21,57 +21,86 @@ import {
   FormLayout,
   TextField,
   Box,
+  Badge,
 } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import Space from "../components/Space";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "A personal  showcasing my work and profile.",
-    image: "https://israteneda.com/preview.png",
-    url: "https://linkedin.com/in/israteneda",
-    technologies: ["React", "Shopify Polaris", "TailwindCSS"],
-    status: "success" as const
-  },
-  {
-    title: "GitHub Projects",
-    description: "Various open-source contributions and experiments.",
-    image: "https://github.com/israteneda.png",
-    url: "https://github.com/israteneda",
-    technologies: ["Python", "TypeScript", "Node.js"],
+    title: "Lyra Collective Brand Storefronts",
+    description: "Developed and maintained Shopify brand storefronts (such as ever.com or mylola.com) for Lyra Collective, including theme customization, third-party software integration, and UX/UI improvements.",
+    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+    url: "https://lyracollective.com",
+    technologies: ["Liquid", "CSS", "JavaScript", "GraphQL", "Shopify Plus"],
     status: "attention" as const
   },
   {
-    title: "E-commerce Dashboard",
-    description: "A dashboard for tracking sales and analytics for online stores.",
+    title: "Brandable Analytics Platform",
+    description: "Maintained and improved the frontend for Brandable, an Amazon analytics platform, focusing on performance and scalability.",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+    url: "https://brandable.com",
+    technologies: ["React", "Shopify Polaris", "TypeScript"],
+    status: "success" as const
+  },
+  {
+    title: "Pair Eyewear E-commerce",
+    description: "Developed and maintained a headless Shopify site for Pair Eyewear, enhancing the e-commerce experience.",
+    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+    url: "https://paireyewear.com",
+    technologies: ["React", "Shopify", "Node.js"],
+    status: "success" as const
+  },
+  {
+    title: "Warby Parker Finance Integration",
+    description: "Built features for the finance department to integrate insurance providers using Python.",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+    url: "https://warbyparker.com",
+    technologies: ["Python", "Django", "APIs"],
+    status: "attention" as const
+  },
+  {
+    title: "Electronic Invoicing System 'Verónica'",
+    description: "Contributed to an open-source electronic invoicing system for the Ecuadorian market.",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
-    url: "https://dashboard.example.com",
-    technologies: ["Next.js", "Chart.js", "Shopify Polaris"],
+    url: "https://github.com/israteneda/veronica",
+    technologies: ["SQL", "Node.js", "JavaScript"],
     status: "success" as const
   },
 ];
 
 const clients = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/4/44/Shopify_logo_2018.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/e/e9/Warby_Parker_logo.svg",
+  "/clients/lyracollective-logo.jpeg",
+  "/clients/ioet-logo.png",
+  "/clients/andes-logo.webp",
+  "/clients/brandable-logo.png",
+  "/clients/veronica-logo.png",
 ];
 
 const testimonials = [
   {
-    name: "Jane Doe",
-    title: "CTO, Brandable",
-    testimonial:
-      "Israel is a top-tier developer. His attention to detail and ability to deliver high-quality code on time made a huge impact on our product.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Mike Kuerschner",
+    title: "Engineering Manager at Birdy Grey",
+    testimonial: `Israel has a strong passion for development and writing clean, modern code, which translates to building exceptional user experiences. In my time working with Israel he was always willing to take on more challenging tasks, learn something new, and lend a helping hand to fellow team members...`,
+    image: "/testimonials/Mike-Kuerschner.jpeg",
   },
   {
-    name: "John Smith",
-    title: "Lead Engineer, Lyra Collective",
-    testimonial:
-      "Working with Israel was a pleasure. He brought innovative solutions and always ensured best practices were followed.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Tzu-Hao (Tony) Huang",
+    title: "Engineering Manager at Warby Parker",
+    testimonial: `Israel is one of the best engineers that I have had the pleasures to work with. He took no time at all to ramp up in Warby Parker's Findev team and is a super fast learner. I am also impressed with how Israel is always on top any bug or defect that show up on production before anyone else...`,
+    image: "/testimonials/Tony-Huang.jpeg",
+  },
+  {
+    name: "Edwin Hidalgo",
+    title: "Product Lead | AI, Web3, Creative Consumer | ex. Story, JPM, Warby Parker",
+    testimonial: `Israel has been an amazing key contributor to our team, taking initiative on both internal and user facing client synchronous projects while simultaneously taking the time to support his teammates across other projects...`,
+    image: "/testimonials/Edwin-Hidalgo.jpeg",
+  },
+  {
+    name: "Jonathan Andrés Naranjo",
+    title: "Senior Front-end Developer | Team Lead at ioet",
+    testimonial: `Israel is truly one of a kind. He quickly adapts, delivers great results, and stands out for his strong development skills and exceptional interpersonal abilities. His communication, delegation, and leadership make a real difference in any team...`,
+    image: "/testimonials/Andres-Naranjo.jpeg",
   },
 ];
 
@@ -146,7 +175,12 @@ export default function ResumePage() {
                 <div id="about">
                   <Text variant="headingMd" as="h2">About Me</Text>
                   <Space size="1rem" />
-                  <Divider />
+                  <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                    <Badge tone="success" size="large">Shopify Plus Expert</Badge>
+                    <Badge tone="attention" size="large">5+ Years in E-commerce</Badge>
+                    <Badge tone="info" size="large">10+ Shopify Stores Maintained</Badge>
+                  </div>
+                  
                   <Text as="p" tone="subdued">
                     Frontend developer specializing in e-commerce platforms like Shopify Plus, with a strong focus on performance, UX, and scalability. Passionate about clean code, agile practices, and continuous learning.
                   </Text>
@@ -159,7 +193,7 @@ export default function ResumePage() {
                 <div id="experience">
                   <Text variant="headingMd" as="h2">Professional Experience</Text>
                   <Space size="1rem" />
-                  <Divider />
+                  
                   <BlockStack gap="400">
                     <Card>
                       <BlockStack gap="100">
@@ -222,21 +256,24 @@ export default function ResumePage() {
                 <div id="projects">
                   <Text variant="headingMd" as="h2">Projects</Text>
                   <Space size="1rem" />
-                  <Divider />
+                  
                   <Grid gap={{ xs: "400", sm: "400", md: "400", lg: "400" }} columns={{ xs: 1, sm: 2, md: 2, lg: 3 }}>
                     {projects.map((project, idx) => (
                       <Card key={idx} padding="400">
-                        <BlockStack gap="200">
+                        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                           <img src={project.image} alt={project.title} style={{ width: '100%', borderRadius: '8px', objectFit: 'cover', maxHeight: 160 }} />
                           <Text variant="headingSm" as="h3">{project.title}</Text>
-                          <Text as="p" tone="subdued">{project.description}</Text>
-                          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', margin: '0.5rem 0' }}>
                             {project.technologies.map((tech, i) => (
                               <Tag key={i}>{tech}</Tag>
                             ))}
                           </div>
-                          <Button url={project.url} external>View Project</Button>
-                        </BlockStack>
+                          <Text as="p" tone="subdued">{project.description}</Text>
+                          <div style={{ flex: 1 }} />
+                          <div style={{ marginTop: '1.25rem', width: '100%' }}>
+                            <Button url={project.url} external fullWidth>View Project</Button>
+                          </div>
+                        </div>
                       </Card>
                     ))}
                   </Grid>
@@ -249,7 +286,7 @@ export default function ResumePage() {
                 <div id="testimonials">
                   <Text variant="headingMd" as="h2">Testimonials</Text>
                   <Space size="1rem" />
-                  <Divider />
+                  
                   <Grid gap={{ xs: "400", sm: "400", md: "400", lg: "400" }} columns={{ xs: 1, sm: 2, md: 2, lg: 2 }}>
                     {testimonials.map((t, idx) => (
                       <MediaCard
@@ -264,6 +301,7 @@ export default function ResumePage() {
                         />
                         <div style={{ marginTop: 12 }}>
                           <Tag>{t.name} — {t.title}</Tag>
+                          <span className="testimonial-name-title-mobile">{t.name} — {t.title}</span>
                         </div>
                       </MediaCard>
                     ))}
@@ -277,40 +315,19 @@ export default function ResumePage() {
                 <div id="clients">
                   <Text variant="headingMd" as="h2">Clients</Text>
                   <Space size="1rem" />
-                  <Divider />
-                  <Scrollable shadow style={{ height: "100px", display: "flex", overflowX: "auto" }}>
-                    <BlockStack gap="400">
-                      <Grid gap={{ xs: "400", sm: "400", md: "400", lg: "400" }} columns={{ xs: 2, sm: 3, md: 3, lg: 3 }}>
-                        {clients.map((logo, i) => (
-                          <Box
-                            key={i}
-                            borderColor="transparent"
-                            padding="0"
-                            minHeight="60px"
-                            minWidth="100px"
-                            as="div"
-                          >
-                            <div
-                              style={{
-                                width: '100px',
-                                height: '60px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                background: 'none',
-                                boxShadow: 'none',
-                              }}
-                            >
-                              <img
-                                src={logo}
-                                alt="client logo"
-                                style={{ width: '100px', height: '60px', objectFit: 'contain', display: 'block' }}
-                              />
-                            </div>
-                          </Box>
-                        ))}
-                      </Grid>
-                    </BlockStack>
+                  
+                  <Scrollable shadow style={{ height: "120px", display: "flex", overflowX: "auto" }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '80px', gap: '5%' }}>
+                      {clients.map((logo, i) => (
+                        <div key={i} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', height: '80px' }}>
+                            <img
+                              src={logo}
+                              alt="client logo"
+                              style={{ maxWidth: '100%', maxHeight: '80px', objectFit: 'contain', display: 'block' }}
+                            />
+                        </div>
+                      ))}
+                    </div>
                   </Scrollable>
                 </div>
               </Card>
@@ -327,6 +344,53 @@ export default function ResumePage() {
           </FooterHelp>
         </Page>
       </Frame>
+      <style jsx>{`
+        /* Make testimonial images the same size and object-fit cover */
+        :global(.Polaris-MediaCard__Media img) {
+          width: 180px !important;
+          height: 180px !important;
+          object-fit: cover !important;
+          border-radius: 16px !important;
+        }
+        /* Hide tag and show plain text for name/title on mobile */
+        .testimonial-name-title-mobile {
+          display: none;
+        }
+        @media (max-width: 600px) {
+          :global(.Polaris-Grid) {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+          }
+          :global(.Polaris-Grid > *) {
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          :global(.Polaris-MediaCard__Media img) {
+            width: 100% !important;
+            height: 40vw !important;
+            min-height: 120px !important;
+            max-height: 220px !important;
+            object-fit: cover !important;
+            border-radius: 0 !important;
+          }
+          :global(.Polaris-MediaCard__Content) {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          :global(.Polaris-Tag) {
+            display: none !important;
+          }
+          .testimonial-name-title-mobile {
+            display: block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            color: #202223;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        }
+      `}</style>
     </AppProvider>
   );
 }
