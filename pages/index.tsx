@@ -30,7 +30,7 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: "Lyra Collective Brand Storefronts (ever.com, mylola.com, etc.)",
+    title: "Lyra Collective Brand Storefronts (Ever, Lola, and more)",
     description: "Developed and maintained Shopify brand storefronts for Lyra Collective, including theme customization, third-party software integration, and UX/UI improvements.",
     image: "/projects/ever.jpeg",
     url: "https://www.ever.com/",
