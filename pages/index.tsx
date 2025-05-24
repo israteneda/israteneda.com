@@ -387,57 +387,6 @@ export default function ResumePage() {
           </FooterHelp>
         </Page>
       </Frame>
-      <style>{`
-        /* Make testimonial images the same size and object-fit cover */
-        :global(.Polaris-MediaCard__Media img) {
-          width: 180px !important;
-          height: 180px !important;
-          object-fit: cover !important;
-          border-radius: 16px !important;
-        }
-        /* Hide tag and show plain text for name/title on mobile */
-        .testimonial-name-title-mobile {
-          display: none;
-        }
-        @media (max-width: 600px) {
-          :global(.Polaris-Grid) {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 1.5rem !important;
-          }
-          :global(.Polaris-Grid > *) {
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-          :global(.Polaris-MediaCard__Media img) {
-            width: 100% !important;
-            height: 40vw !important;
-            min-height: 120px !important;
-            max-height: 220px !important;
-            object-fit: cover !important;
-            border-radius: 0 !important;
-          }
-          :global(.Polaris-MediaCard__Content) {
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-          }
-          :global(.Polaris-Tag) {
-            display: none !important;
-          }
-          .testimonial-name-title-mobile {
-            display: block;
-            margin-top: 0.5rem;
-            font-weight: 500;
-            color: #202223;
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
-        }
-        /* Increase gap between grid items */
-        :global(.Polaris-Grid) {
-          gap: 1rem !important;
-        }
-      `}</style>
     </AppProvider>
   );
 }
