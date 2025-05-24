@@ -212,8 +212,8 @@ export default function ResumePage() {
                   <Space size="1rem" />
                   <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                     <Badge tone="success" size="large">Shopify Plus Expert</Badge>
-                    <Badge tone="attention" size="large">5+ Years in E-commerce</Badge>
-                    <Badge tone="info" size="large">10+ Shopify Stores Maintained</Badge>
+                    <Badge tone="attention" size="large">5+ Years as a Software Engineer</Badge>
+                    <Badge tone="info" size="large">Maintained 10+ Shopify Stores</Badge>
                   </div>
                   
                   <Text as="p" tone="subdued">
