@@ -1,14 +1,13 @@
 # Personal Website
 
-A modern personal website built with [Next.js](https://nextjs.org), featuring a clean and responsive design.
+A modern personal website built with [Next.js](https://nextjs.org).
 
 ## Features
 
-- 🚀 Built with Next.js for optimal performance and SEO
-- 📱 Fully responsive design
-- 🎨 Modern and clean UI
-- ⚡ Fast page loads and smooth transitions
-- 🔍 SEO optimized
+- 🚀 Next.js for performance and SEO
+- 📱 Responsive design
+- 🎨 Clean UI
+- ⚡ Fast page loads
 
 ## Getting Started
 
@@ -19,50 +18,32 @@ A modern personal website built with [Next.js](https://nextjs.org), featuring a 
 
 ### Installation
 
-1. Clone the repository:
+1. Clone and install:
 ```bash
 git clone https://github.com/yourusername/israteneda.com.git
 cd israteneda.com
-```
-
-2. Install dependencies:
-```bash
 npm install
-# or
-yarn install
 ```
 
-3. Run the development server:
+2. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Development
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm run start` - Production server
 
-## Technologies Used
+## Tech Stack
 
-- [Next.js](https://nextjs.org) - React framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com) - Styling
-- [ESLint](https://eslint.org) - Code linting
-- [Prettier](https://prettier.io) - Code formatting
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com)
 
 ## Contact
 
 Isra Teneda - [@israteneda](https://twitter.com/israteneda)
-
-Project Link: [https://github.com/yourusername/israteneda.com](https://github.com/yourusername/israteneda.com)
